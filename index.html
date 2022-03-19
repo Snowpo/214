@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title My Final Project></title>
+        <script src = "https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src = "https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src = "https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+        <script src = "https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+        <script src = "https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+        <script src = "components/treasure.js"></script>
+        <script src = "components/controls.js"></script>
+    </head>
+    <body>
+        <a-scene background = 'white' inspector-plugin-recast>
+            <a-assets>
+                <!-- <a-asset-item id = 'treasure' src = './assets/treasure_chest/scene.gltf'></a-asset-item> -->
+            </a-assets>                 
+        <a-entity id = 'environment' environment = 'preset:poison;skyType:atmosphere;lighting:point' treasure-count></a-entity>
+        <a-entity light = 'type:ambient;color:white;intensity:0.5'> </a-entity>
+        <a-entity light = "type:directional;color:#eee;intensity:1;position='-1 1 0'"></a-entity>
+        <a-entity id = 'camera' camera wasd-controls look-controls="pointerLogEnabled:false">
+        <a-entity id = 'player'
+        gltf-model = '#treasure'
+        position = '0 20 10'
+        scale = '0.5 0.5 0.5'
+        treasure-count playerMovement>
+        <!-- <a-entity id = 't' position = '0 0 -10' gltf-model = '#treasure'></a-entity> -->
+        </a-entity>
+    </a-entity>
+        </a-scene>
+    </body>
+</html>
